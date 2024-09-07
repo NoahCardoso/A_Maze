@@ -20,6 +20,7 @@ public class MazeBinaryTree extends JPanel implements KeyListener {
         trimMaze();
         solveMaze();
     }
+
     private void initializeMaze() {
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
@@ -28,9 +29,8 @@ public class MazeBinaryTree extends JPanel implements KeyListener {
         }
     }
     private void generateMaze() {
-
-		for (int height = 1; height < HEIGHT - 1; height+=2){
-			for (int width = 1; width < WIDTH - 1; width+=2){
+		for (int height = 1; height < HEIGHT - 1; height += 2){
+			for (int width = 1; width < WIDTH - 1; width += 2){
 				maze[height][width] = 1;
 				if ((int) (Math.random () * 2) + 1 == 1)
                     maze[width - 1] [height] = 1;
@@ -47,16 +47,13 @@ public class MazeBinaryTree extends JPanel implements KeyListener {
 			}
 		}
     }
-        
     
-
     private void solveMaze(){
         for (int height = 1; height < HEIGHT - 1; height += 1){
 			for (int width = 1; width < WIDTH - 1; width += 1){
                 int surroundingWalls = 0, x = width, y = height;
-                if (maze[x][y]==1){
+                if (maze[x][y] == 1){
                     do{
-                    
                         int nx = 0, ny = 0;
                         int surroundings[] = {0,0,0,0};
                         if (maze[x][y - 1] != 1)
@@ -95,10 +92,9 @@ public class MazeBinaryTree extends JPanel implements KeyListener {
                 }
                 
                 
-                }
-			}
-		}
-    
+            }
+        }
+    }
 
     @Override
     protected void paintComponent(Graphics g) {
